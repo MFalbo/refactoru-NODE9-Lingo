@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var beGlobal = require('node-beglobal');
-var translate = require('./models/translate.js')
+var translate = require('./controllers/translate.js')
 
 var app = express();
 app.set('view engine', 'jade');
@@ -17,23 +17,16 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
+app.get('/translate', translate.translate);
+app.post('/translate/result', translate.result);
 
-app.get('/translate', function(req, res) {
-	res.render('translate');
+app.get('/quiz', function(req, res) {
+	res.render('quiz');
 });
 
-app.post('/translate/result', function(req,res){
-	beglobal.translations.translate(
-	 	 {text: req.body.text, from: req.body.from, to: req.body.to},
-	  	function(err, results) {
-		    if (err) {
-		      return console.log(err);
-		    }
-			res.render('result', {results: results});
-		}
-	);	
+app.get('/progress', function(req, res) {
+	res.render('progress');
 });
-
 
 var server = app.listen(8627, function() {
 	console.log('Express server listening on port ' + server.address().port);
