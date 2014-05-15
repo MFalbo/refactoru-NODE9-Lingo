@@ -17,7 +17,7 @@ $(document).ready(function() {
 	$('#answer-btn').on('submit', function(e) {
 		e.preventDefault();
 		$.post('/quiz/result', {
-			text: $('#text').val(),
+			text: $('#transWord').text(),
 			from: 'eng',
 			to: 'spa'
 		}, function(data) {

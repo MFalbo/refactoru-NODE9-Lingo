@@ -3,11 +3,12 @@ extends layout
 block content
 	h2 Translate From #{from}
 	h2 Translate To #{to}
-	
+	h2 Word to translate:
+	h3#transWord #{text}
 	form#answer-btn
-		input#text(type='text' name='text' value='hello')
+		//- input#text(type='text' name='text' value='hello')
 		input#user-ans(type='text' name='user-response' placeholder="Type your answer here")
 		input(type='submit')
 
 
-	p= text
+	//- p= text
