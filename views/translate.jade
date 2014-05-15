@@ -7,6 +7,8 @@ block content
 		input(type='text' name='text' placeholder="Text To Translate")
 		input(type='submit')
 
-	//- p= translation.translation
-
-
+	
+		h3 Languages:
+		ul
+			for language in allLanguages
+				li <strong>#{language.name}</strong> (<em>#{language.code}</em>)

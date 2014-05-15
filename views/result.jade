@@ -8,3 +8,8 @@ block content
 		input(type='submit')
 
 	p= results.translation
+
+	h3 Languages:
+	ul
+		for language in allLanguages
+			li <strong>#{language.name}</strong> (<em>#{language.code}</em>)

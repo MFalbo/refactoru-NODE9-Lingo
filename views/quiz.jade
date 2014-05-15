@@ -2,3 +2,9 @@ extends layout
 
 block content
 	h1 Quiz Page
+		form(method='post' action='/quiz/start')
+			input(type='text' name='from' placeholder="Translate From")
+			input(type='text' name='to' placeholder="Translate To")
+			//- input(type='text' name='text' value='hello')
+			//- input(type='text' name='user-response' placeholder="Type your answer here")
+			input(type='submit')
