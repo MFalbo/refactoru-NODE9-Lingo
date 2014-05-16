@@ -7,6 +7,7 @@ var languageList = require('../models/translate.js');
 
 module.exports = {
 	translate: function(req, res) {
+		console.log(languageList);
 		res.render('translate', {allLanguages: languageList});
 	},
 

@@ -18,6 +18,7 @@ module.exports = {
 		res.render('quiz');
 	},
 	start: function(req, res) {
+		console.log(req.body);
 		var fromLang = req.body.from;
 		var toLang = req.body.to;
 		// console.log(fromLang);
@@ -56,5 +57,20 @@ module.exports = {
 			// console.log(doc[0].word);
 			res.send(doc[0].word);
 		});
+	},
+
+	complete: function(req, res) {
+		res.render('quizcomplete');
+
 	}
 }
+
+
+
+
+
+
+
+
+
+

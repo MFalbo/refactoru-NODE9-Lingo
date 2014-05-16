@@ -2,13 +2,18 @@ extends layout
 
 block content
 	form(method='post' action='/translate/result')
-		input(type='text' name='from' placeholder="Translate From")
-		input(type='text' name='to' placeholder="Translate To")
+		input#transFrom(type='text' name='from' placeholder="Translate From")
+		input#transTo(type='text' name='to' placeholder="Translate To")
 		input(type='text' name='text' placeholder="Text To Translate")
 		input(type='submit')
 
-	
-		h3 Languages:
+	.left
+		h3 From Languages:
 		ul
 			for language in allLanguages
-				li <strong>#{language.name}</strong> (<em>#{language.code}</em>)
+				li.from-language <strong>#{language.name}</strong> (<em>#{language.code}</em>)
+	.right
+		h3 To Languages:
+		ul
+			for language in allLanguages
+				li.to-language <strong>#{language.name}</strong> (<em>#{language.code}</em>)

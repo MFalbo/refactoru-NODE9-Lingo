@@ -9,7 +9,13 @@ block content
 
 	p= results.translation
 
-	h3 Languages:
-	ul
-		for language in allLanguages
-			li <strong>#{language.name}</strong> (<em>#{language.code}</em>)
+	.left
+		h3 From Languages:
+		ul
+			for language in allLanguages
+				li.from-language <strong>#{language.name}</strong> (<em>#{language.code}</em>)
+	.right
+		h3 To Languages:
+		ul
+			for language in allLanguages
+				li.to-language <strong>#{language.name}</strong> (<em>#{language.code}</em>)

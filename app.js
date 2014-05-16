@@ -56,6 +56,7 @@ app.get('/quiz', quiz.main);
 app.post('/quiz/start', quiz.start);
 app.post('/quiz/result', quiz.result);
 app.get('/quiz/question', quiz.question);
+app.get('/quiz/complete', quiz.complete);
 
 // Progress section routes
 app.get('/progress', progress.main);
