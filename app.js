@@ -55,6 +55,7 @@ app.get('/translate/error', translate.error);
 app.get('/quiz', quiz.main);
 app.post('/quiz/start', quiz.start);
 app.post('/quiz/result', quiz.result);
+app.get('/quiz/question', quiz.question);
 
 // Progress section routes
 app.get('/progress', progress.main);

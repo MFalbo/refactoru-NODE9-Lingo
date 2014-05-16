@@ -22,13 +22,25 @@ $(document).ready(function() {
 			to: 'spa'
 		}, function(data) {
 			console.log(data);
+			$('#transAns').empty();
 			if(data.results.translation.toLowerCase() === $('#user-ans').val().toLowerCase()) {
-				$('body').append('<p>Correct</p>');
+				$('#transAns').append('<p>Correct</p>');
 			}
 
 			else {
-				$('body').append('<p>Incorrect, the correct answer is ' + data.results.translation + '</p>');
+				$('#transAns').append('<p>Incorrect, the correct answer is ' + data.results.translation + '</p>');
 			}
+			$('#user-ans').val('');
 		});	
+	});
+
+	$('#nextQues').on('click', function(){
+			console.log('next button clicked');
+		$.get('/quiz/question', function(data){
+			console.log('next button Ajax call');
+			console.log(data);
+			$('#transWord').empty();
+			$('#transWord').text(data);
+		});
 	});
 });

@@ -2,19 +2,20 @@ var beGlobal = require('node-beglobal');
 var beglobal = new beGlobal.BeglobalAPI({
   api_token: 'QFQv%2ByR2w0YF9RyjqHagrw%3D%3D'
 });
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/lingo');
+// mongoose.connect('mongodb://localhost/lingo');
 
-var Word = mongoose.model('word', {
-	word: String,
-	language: String,
-	languageCode: String
-});
+// var Word = mongoose.model('word', {
+// 	word: String,
+// 	language: String,
+// 	languageCode: String
+// });
+var Word = require('../models/quiz.js');
 
 module.exports = {
 	main: function(req, res) {
-	res.render('quiz');
+		res.render('quiz');
 	},
 	start: function(req, res) {
 		var fromLang = req.body.from;
@@ -25,7 +26,7 @@ module.exports = {
 		// 		console.log(err);
 		// 	}
 		// });
-		Word.find({languageCode: "eng"}).limit(1).skip(Math.random()*100).exec(function(err,doc){
+		Word.find({languageCode: fromLang}).limit(1).skip(Math.random()*100).exec(function(err,doc){
 			// console.log(doc[0].word);
 			res.render('quizstart', 
 			{
@@ -48,5 +49,12 @@ module.exports = {
 				res.send('/quiz/result', {results: results});
 			}
 		);	
+	},
+
+	question: function(req,res){
+		Word.find({languageCode: 'eng'}).limit(1).skip(Math.random()*100).exec(function(err,doc){
+			// console.log(doc[0].word);
+			res.send(doc[0].word);
+		});
 	}
 }
